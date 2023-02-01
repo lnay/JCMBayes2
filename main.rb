@@ -11,10 +11,11 @@ puts "The channel ID is #{channel_id}"
 
 bot = Discordrb::Bot.new token: bot_token
 
-rgx = /^(jcmb|bayes)(\s+[a-z0-9_\-:\.]+)?[!?]?$/i;
+rgx = /^(?<location>jcmb|bayes)(\s+[a-z0-9_\-:\.]+)?[!?]?$/i;
 
-bot.message(with_text: rgx) do |event|
-  event.respond 'Correct format!'
+bot.message() do |event|
+  event.respond "S H A M E" unless event.content =~ rgx
+  event.respond "Location: #{$~['location']}" if $~
 end
 
 bot.run
