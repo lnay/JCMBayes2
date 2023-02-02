@@ -11,6 +11,11 @@ puts "The channel ID is #{channel_id}"
 
 bot = Discordrb::Bot.new token: bot_token
 
+people = {
+  "jcmb" => [],
+  "bayes" => [],
+}
+
 def shame(message)
   reactions = ['🇸', '🇭', '🇦', '🇲', '🇪', '👹']
   reactions.each do |reacc|
@@ -30,6 +35,10 @@ bot.message() do |event|
   if match_data
     location = match_data['location']
     event.respond "Location: #{location}"
+    name = event.author.display_name
+    location_attendees = people[location.downcase]
+    location_attendees << name unless location_attendees.include?(name)
+    puts people
   else
     shame event.message
   end
