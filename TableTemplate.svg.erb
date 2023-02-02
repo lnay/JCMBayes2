@@ -59,7 +59,7 @@
      id="layer2"
      inkscape:label="backround">
     <rect
-       style="fill:#2c2f33;stroke:#23272a;stroke-width:0.365271;fill-opacity:1"
+       style="fill:#36393f;stroke:#2c2f33;stroke-width:0.365271;fill-opacity:1"
        id="rect1222"
        width="199.63474"
        height="99.634727"
@@ -91,39 +91,43 @@
        transform="scale(0.26458333)"
        id="text3136"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect3138);display:inline;fill:#ffffff;fill-opacity:1;stroke:none" />
-<% people["jcmb"].each do |name| %>
+<% people["jcmb"].each_with_index do |name, index| 
+     y = 37 + 15*index
+%>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:9.87778px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="194.05646"
-       y="37"
+       y="<%= y %>"
        id="text3144-7"><tspan
          sodipodi:role="line"
          id="tspan3142-5"
          style="font-size:9.87778px;text-align:end;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
          x="194.05646"
-         y="37"><%= name %><tspan
+         y="<%= y %>"><%= name %><tspan
    style="fill:#7289da;fill-opacity:1"
    id="tspan8375">■</tspan></tspan></text>
 <% end %>
-<% people["bayes"].each do |name| %>
+<% people["bayes"].each_with_index do |name, index| 
+     y = 37 + 15*index
+%>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:9.87778px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="9"
-       y="37"
+       y="<%= y %>"
        id="text3144-3"><tspan
          sodipodi:role="line"
          id="tspan3142-6"
          style="font-size:9.87778px;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
          x="9"
-         y="37"><tspan
+         y="<%= y %>"><tspan
    style="fill:#7289da;fill-opacity:1"
    id="tspan6921">■</tspan><%= name %></tspan><tspan
          sodipodi:role="line"
          style="font-size:9.87778px;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
          x="9"
-         y="60"
+         y="<%= y %>"
          id="tspan3955" /></text>
 <% end %>
   </g>

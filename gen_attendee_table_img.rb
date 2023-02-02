@@ -4,8 +4,8 @@ require "RMagick2"
 svg_template = ERB.new File.read "./TableTemplate.svg.erb"
 
 people = {
-  "jcmb" => ["Luke"],
-  "bayes" => ["Hannah"]
+  "jcmb" => ["Luke", "Lucas"],
+  "bayes" => ["Hannah", "Patrick"]
 }
 
 img = Magick::Image.from_blob(svg_template.result binding) {
