@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200mm"
+   height="100mm"
+   viewBox="0 0 200 100"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="TableTemplate.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#2c2f33"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.3808221"
+     inkscape:cx="354.86106"
+     inkscape:cy="179.96525"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="16.356877"
+       y="10.00027"
+       width="361.3478"
+       height="89.626182"
+       id="rect6038" />
+    <rect
+       x="16.356876"
+       y="10.00027"
+       width="342.68569"
+       height="77.532504"
+       id="rect6038-3" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="display:inline;fill:none;stroke:#23272a;stroke-width:2.00254;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 101.00127,0 V 100"
+       id="path3691"
+       inkscape:label="vertical_division" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.2456761,23.99998,0.28878016)"
+       id="text6036"
+       style="font-style:normal;font-weight:normal;font-size:64px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect6038);shape-padding:0.710062;display:inline;fill:#99aab5;fill-opacity:1;stroke:none;stroke-width:1.37953;stroke-dasharray:none"
+       x="83.903992"
+       y="0"><tspan
+         x="17.066406"
+         y="68.942949"
+         id="tspan1628">Bayes
+</tspan></text>
+  </g>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.26222172,0,0,0.25642779,120.38573,0.01914333)"
+     id="text6036-6"
+     style="font-style:normal;font-weight:normal;font-size:64px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect6038-3);shape-padding:1.42652;display:inline;fill:#99aab5;fill-opacity:1;stroke:none;stroke-width:1.37953;stroke-dasharray:none"
+     x="83.903992"
+     y="0"><tspan
+       x="17.783203"
+       y="69.659746"
+       id="tspan1630">JCMB
+</tspan></text>
+</svg>
