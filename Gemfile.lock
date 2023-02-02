@@ -22,11 +22,14 @@ GEM
     netrc (0.11.0)
     opus-ruby (1.0.1)
       ffi
+    pkg-config (1.5.1)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rmagick (5.1.0)
+      pkg-config (~> 1.4)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
@@ -41,6 +44,7 @@ PLATFORMS
 
 DEPENDENCIES
   discordrb
+  rmagick
   yaml
 
 BUNDLED WITH
