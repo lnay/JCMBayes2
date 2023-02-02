@@ -1,5 +1,7 @@
 require 'discordrb'
 require 'yaml'
+require "erb"
+require "RMagick2"
 
 auth = YAML.load_file("auth.yml")
 
@@ -27,6 +29,16 @@ def shame(message)
   message.delete
 end
 
+def gen_table_img(people, filename)
+  svg_template = ERB.new File.read "./TableTemplate.svg.erb"
+
+  img = Magick::Image.from_blob(svg_template.result binding) {
+    format= 'SVG'
+  }
+
+  img[0].write filename
+end
+
 permissible_message = /^
   (?<location>#{locations.join("|")}) # Message must start with one location
   (\s+[a-z0-9_\-:\.]+)? # Followed by optional extra (starting with a space)
@@ -39,11 +51,13 @@ bot.message() do |event|
   match_data = permissible_message.match(event.content)
   if match_data
     location = match_data['location']
-    event.respond "Location: #{location}"
+    puts "Location: #{location}"
     name = event.author.display_name
     location_attendees = people[location.downcase]
     location_attendees << name unless location_attendees.include?(name)
     puts people
+    gen_table_img people, "out.png"
+    event.attach_file File.open("out.png", "r")
   else
     shame event.message
   end
