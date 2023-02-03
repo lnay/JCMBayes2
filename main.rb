@@ -14,7 +14,7 @@ LOCATIONS = ["JCMB", "Bayes"]
 # Hash associating each location to an empty list (to fill with attendees)
 $people = LOCATIONS.map{ |loc| [loc.downcase, []] }.to_h
 
-def shame message
+def s_h_a_m_e message
   ['🇸', '🇭', '🇦', '🇲', '🇪', '👹'].each &message.method(:create_reaction)
   sleep 10
   message.delete
@@ -42,7 +42,7 @@ bot.message() do |event|
     gen_table_img "out.png"
     event.attach_file File.open("out.png", "r")
   else
-    shame event.message
+    s_h_a_m_e event.message
   end
 end
 
