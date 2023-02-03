@@ -3,18 +3,16 @@ require "erb"
 require "RMagick2"
 require 'yaml'
 
-auth = YAML.load_file("auth.yml")
-bot_token = auth["token"]
-channel_id = auth["channel"]
+AUTH_FILE = YAML.load_file("auth.yml")
+BOT_TOKEN = AUTH_FILE["token"]
+CHANNEL_ID = AUTH_FILE["channel"]
 
-puts "The Bot Token is #{bot_token}"
-puts "The channel ID is #{channel_id}"
+puts "The Bot Token is #{BOT_TOKEN}"
+puts "The channel ID is #{CHANNEL_ID}"
 
-bot = Discordrb::Bot.new token: bot_token
-
-locations = ["JCMB", "Bayes"]
-# hash associating each location to an empty list (to fill with attendees)
-people = locations.map{ |loc| [loc.downcase, []] }.to_h
+LOCATIONS = ["JCMB", "Bayes"]
+# Hash associating each location to an empty list (to fill with attendees)
+people = LOCATIONS.map{ |loc| [loc.downcase, []] }.to_h
 
 def shame(message)
   ['🇸', '🇭', '🇦', '🇲', '🇪', '👹'].each &message.method(:create_reaction)
@@ -28,18 +26,19 @@ def gen_table_img(people, filename)
   img[0].write filename
 end
 
-permissible_message = /^
-  (?<location>#{locations.join("|")}) # start with one location
+PERMISSIBLE_MESSAGE = /^
+  (?<location>#{LOCATIONS.join("|")}) # start with one location
   (\s+[a-z0-9_\-:\.]+)? # Followed by optional extra, separated by a space
   [!?]? # End with optional punctuation
 $/ix
 
+bot = Discordrb::Bot.new token: BOT_TOKEN
+
 bot.message() do |event|
-  if event.content =~ permissible_message
-    location = $~['location']
+  if event.content =~ PERMISSIBLE_MESSAGE
+    location = $~['location'].downcase
     name = event.author.display_name
-    location_attendees = people[location.downcase]
-    location_attendees << name unless location_attendees.include?(name)
+    people[location] << name unless people[location].include?(name)
     gen_table_img people, "out.png"
     event.attach_file File.open("out.png", "r")
   else
