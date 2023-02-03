@@ -1,7 +1,7 @@
-require 'discordrb'
+require "discordrb"
 require "erb"
 require "RMagick2"
-require 'yaml'
+require "yaml"
 
 AUTH_FILE = YAML.load_file("auth.yml")
 BOT_TOKEN = AUTH_FILE["token"]
@@ -22,7 +22,7 @@ end
 
 def gen_table_img(people, filename)
   svg_template = ERB.new File.read "./TableTemplate.svg.erb"
-  img = Magick::Image.from_blob(svg_template.result binding) { format='SVG' }
+  img = Magick::Image.from_blob(svg_template.result binding) { format="SVG" }
   img[0].write filename
 end
 
@@ -36,7 +36,7 @@ bot = Discordrb::Bot.new token: BOT_TOKEN
 
 bot.message() do |event|
   if event.content =~ PERMISSIBLE_MESSAGE
-    location = $~['location'].downcase
+    location = $~["location"].downcase
     name = event.author.display_name
     people[location] << name unless people[location].include?(name)
     gen_table_img people, "out.png"
