@@ -33,6 +33,7 @@ $/ix
 bot = Discordrb::Bot.new token: BOT_TOKEN
 
 bot.message() do |event|
+  return 0 unless event.channel.id == CHANNEL_ID
   if event.content =~ PERMISSIBLE_MESSAGE
     location = $~[:location].downcase
     name = event.author.display_name

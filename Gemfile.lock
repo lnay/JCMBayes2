@@ -40,6 +40,7 @@ GEM
     yaml (0.2.1)
 
 PLATFORMS
+  aarch64-linux
   x86_64-linux
 
 DEPENDENCIES
