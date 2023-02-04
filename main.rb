@@ -43,6 +43,9 @@ bot.message() do |event|
     $people[location] << name unless $people[location].include?(name)
     gen_table_img "out.png"
     event.attach_file File.open("out.png", "r")
+  elsif event.content == "!clear"
+    $people["jcmb"] = []
+    $people["bayes"] = []
   else
     s_h_a_m_e event.message
   end
