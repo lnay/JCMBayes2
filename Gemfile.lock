@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    concurrent-ruby (1.2.0)
     discordrb (3.4.0)
       discordrb-webhooks (~> 3.3.0)
       ffi (>= 1.9.24)
@@ -11,8 +12,13 @@ GEM
       rest-client (>= 2.1.0.rc1)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    et-orbi (1.2.7)
+      tzinfo
     event_emitter (0.2.6)
     ffi (1.15.5)
+    fugit (1.8.1)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -23,6 +29,7 @@ GEM
     opus-ruby (1.0.1)
       ffi
     pkg-config (1.5.1)
+    raabro (1.4.0)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -30,6 +37,10 @@ GEM
       netrc (~> 0.8)
     rmagick (5.1.0)
       pkg-config (~> 1.4)
+    rufus-scheduler (3.8.2)
+      fugit (~> 1.1, >= 1.1.6)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
@@ -46,6 +57,7 @@ PLATFORMS
 DEPENDENCIES
   discordrb
   rmagick
+  rufus-scheduler
   yaml
 
 BUNDLED WITH
