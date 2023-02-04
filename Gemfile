@@ -5,4 +5,3 @@ source "https://rubygems.org"
 gem 'discordrb'
 gem 'yaml'
 gem 'rmagick'
-gem 'rufus-scheduler'

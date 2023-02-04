@@ -2,7 +2,6 @@ require "discordrb"
 require "erb"
 require "RMagick2"
 require "yaml"
-require 'rufus-scheduler'
 
 BOT_TOKEN, CHANNEL_ID = YAML.load_file("auth.yml")
                             .values_at("token", "channel")
@@ -47,15 +46,6 @@ bot.message() do |event|
   else
     s_h_a_m_e event.message
   end
-end
-
-scheduler = Rufus::Scheduler.new
-
-scheduler.cron '0 18 * * *' do
-  # Every 18:00
-  $people = LOCATIONS.map{ |loc| [loc.downcase, []] }.to_h
-  bot.send_message CHANNEL_ID "Good grind today! Make sure not to work too late."
-  bot.send_message CHANNEL_ID "Now taking messaged for tomorrow..."
 end
 
 bot.run
