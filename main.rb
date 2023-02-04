@@ -14,8 +14,11 @@ LOCATIONS = ["JCMB", "Bayes"]
 $people = LOCATIONS.map{ |loc| [loc.downcase, []] }.to_h
 
 def s_h_a_m_e message
-  ['🇸', '🇭', '🇦', '🇲', '🇪', '👹'].each &message.method(:create_reaction)
+  shame_reaccs = ['🇸', '🇭', '🇦', '🇲', '🇪', '👹']
+  shame_reaccs.each &message.method(:create_reaction)
   sleep 10
+  total_shame = shame_reaccs.map{|reacc| message.reacted_with(reacc).length}.sum
+  message.respond "Total shame for #{message.author.display_name}: #{total_shame}"
   message.delete
 end
 
