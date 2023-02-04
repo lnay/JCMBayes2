@@ -3,10 +3,8 @@ require "erb"
 require "RMagick2"
 require "yaml"
 
-AUTH_FILE = YAML.load_file("auth.yml")
-BOT_TOKEN = AUTH_FILE["token"]
-CHANNEL_ID = AUTH_FILE["channel"]
-
+BOT_TOKEN, CHANNEL_ID = YAML.load_file("auth.yml")
+                            .values_at("token", "channel")
 puts "The Bot Token is #{BOT_TOKEN}"
 puts "The channel ID is #{CHANNEL_ID}"
 
@@ -36,7 +34,7 @@ bot = Discordrb::Bot.new token: BOT_TOKEN
 
 bot.message() do |event|
   if event.content =~ PERMISSIBLE_MESSAGE
-    location = $~["location"].downcase
+    location = $~[:location].downcase
     name = event.author.display_name
     $people[location] << name unless $people[location].include?(name)
     gen_table_img "out.png"
