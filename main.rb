@@ -44,8 +44,8 @@ bot.message() do |event|
     gen_table_img "out.png"
     event.attach_file File.open("out.png", "r")
   elsif event.content == "!clear"
-    $people["jcmb"] = []
-    $people["bayes"] = []
+    # empty out list of attendees at each location
+    $people.each { |_, attendees| attendees.clear }
   else
     s_h_a_m_e event.message
   end
