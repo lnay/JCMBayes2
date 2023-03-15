@@ -46,6 +46,8 @@ bot.message() do |event|
   elsif event.content == "!clear"
     $people["jcmb"] = []
     $people["bayes"] = []
+  elsif event.content == "!rules"
+    event.message.respond "Permissible messages: '!clear', '!rules' and anything matching the following regex #{PERMISSIBLE_MESSAGE}"
   else
     s_h_a_m_e event.message
   end
