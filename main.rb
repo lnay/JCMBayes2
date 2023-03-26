@@ -28,7 +28,7 @@ def gen_table_img filename
 end
 
 PERMISSIBLE_MESSAGE = /^
-  (^<negation>not\s+)? # Optional negative
+  (?<negation>not\s+)? # Optional negative
   (?<location>#{LOCATIONS.join("|")}) # start with one location
   (\s+[a-z0-9_\-:\.]+)? # Followed by optional extra, separated by a space
   [!?]? # End with optional punctuation
