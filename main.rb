@@ -28,6 +28,7 @@ def gen_table_img filename
 end
 
 PERMISSIBLE_MESSAGE = /^
+  (^<negation>not\s+)? # Optional negative
   (?<location>#{LOCATIONS.join("|")}) # start with one location
   (\s+[a-z0-9_\-:\.]+)? # Followed by optional extra, separated by a space
   [!?]? # End with optional punctuation
@@ -40,7 +41,11 @@ bot.message() do |event|
   if event.content =~ PERMISSIBLE_MESSAGE
     location = $~[:location].downcase
     name = event.author.display_name
-    $people[location] << name unless $people[location].include?(name)
+    if $~[:negation].nil?
+      $people[location] << name unless $people[location].include?(name)
+    else
+      $people[location].delete(name)
+    end
     gen_table_img "out.png"
     event.attach_file File.open("out.png", "r")
   elsif event.content == "!clear"

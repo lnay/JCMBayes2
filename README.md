@@ -13,6 +13,7 @@ as follows:
 1) the message starts with either "JCMB" or "Bayes" (case insensitive and non-optional)
 2) followed by one or more spaces, then a word (optional)
 3) followed by one punctuation mark
+4) prepend message with "not " to remove yourself from location
 
 Any messages sent to the channel in question which do not adhere to these rules
 receive a sequence of demeining reactions.
